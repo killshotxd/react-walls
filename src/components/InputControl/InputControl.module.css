@@ -1,0 +1,57 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.container label {
+  font-weight: 500;
+  color: #dddddd;
+  font-size: 0.9rem;
+}
+
+.container input {
+  width: 100%;
+  border: 1px solid #ddd;
+  color: #787c7a;
+  border-radius: 5px;
+  padding: 8px 10px;
+  outline: none;
+  font-size: 1rem;
+  transition: 200ms;
+  padding-right: 25px;
+}
+
+.container input:hover {
+  border: 1px solid #ff0083;
+}
+
+.container input:focus {
+  border: 3px solid #9f0b50;
+}
+
+.inputContainer {
+  position: relative;
+}
+
+.inputContainer:hover .icon svg {
+  color: #ff0083;
+}
+.inputContainer:focus-within .icon svg {
+  color: #9f0b50;
+}
+.inputContainer .icon {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inputContainer .icon svg {
+  height: 15px;
+  width: 15px;
+  color: #bbb;
+}

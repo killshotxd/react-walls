@@ -3,6 +3,25 @@ import firebase from "firebase/compat/app";
 import "firebase/compat/auth";
 import "firebase/compat/firestore";
 import { initializeApp } from "firebase/app";
+import {
+  getDownloadURL,
+  getStorage,
+  ref,
+  uploadBytesResumable,
+} from "firebase/storage";
+
+import {
+  doc,
+  getFirestore,
+  setDoc,
+  getDoc,
+  addDoc,
+  collection,
+  getDocs,
+  query,
+  where,
+  deleteDoc,
+} from "firebase/firestore";
 
 const firebaseConfig = {
   apiKey: "AIzaSyB_ns8XZRdfL2OTp04Klvxuwqvel7D95BQ",
@@ -19,4 +38,13 @@ const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth(firebaseApp);
 const storage = getStorage(firebaseApp);
 
-export { auth, storage };
+// -------------Functions-------------------------
+
+// -------------Updating user to db-------------
+const updateUserDb = async (user, uid) => {
+  if (typeof user !== "object") return;
+  const docRef = doc(db, "users", uid);
+  await setDoc(docRef, { ...user, uid });
+};
+
+export { auth, storage, updateUserDb };
