@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Home from "./components/Home/Home";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
-
 import { ChakraProvider } from "@chakra-ui/react";
 import { auth } from "./Firebase";
 import Auth from "./components/Auth/Auth";

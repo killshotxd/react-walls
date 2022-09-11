@@ -16,17 +16,22 @@ const Header = (props) => {
   };
 
   return (
-    <div>
-      <Button colorScheme="violet" variant="link" onClick={handleNextBtnClick}>
-        {isAuth ? "Manage your Uploads" : "SignUp"}
-      </Button>
-      {isAuth ? (
-        <Button colorScheme="pink" variant="link" onClick={handleLogOut}>
-          Logout
+    <div className={styles.container}>
+      <div className={styles.left}>
+        <p>React Walls</p>
+      </div>
+      <div className={styles.right}>
+        <Button colorScheme="red" variant="ghost" onClick={handleNextBtnClick}>
+          {isAuth ? "Manage your Uploads" : "SignUp"}
         </Button>
-      ) : (
-        ""
-      )}
+        {isAuth ? (
+          <Button colorScheme="pink" variant="link" onClick={handleLogOut}>
+            Logout
+          </Button>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 };
