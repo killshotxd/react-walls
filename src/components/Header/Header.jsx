@@ -1,6 +1,7 @@
 import { Button } from "@chakra-ui/react";
 import { signOut } from "firebase/auth";
 import React from "react";
+import { GitHub } from "react-feather";
 import { useNavigate } from "react-router-dom";
 import styles from "./Header.module.css";
 const Header = (props) => {
@@ -18,10 +19,15 @@ const Header = (props) => {
   return (
     <div className={styles.container}>
       <div className={styles.left}>
-        <p>React Walls</p>
+        <p>
+          {" "}
+          <a href="https://github.com/killshotxd">
+            React Walls <GitHub />
+          </a>
+        </p>
       </div>
       <div className={styles.right}>
-        <Button colorScheme="red" variant="ghost" onClick={handleNextBtnClick}>
+        <Button colorScheme="gray" variant="ghost" onClick={handleNextBtnClick}>
           {isAuth ? "Manage your Uploads" : "SignUp"}
         </Button>
         {isAuth ? (

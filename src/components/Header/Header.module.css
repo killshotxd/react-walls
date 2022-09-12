@@ -10,4 +10,15 @@
 .left p {
   font-size: x-large;
   font-weight: 600;
+  cursor: pointer;
+}
+
+.left p a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.left p a:hover {
+  color: azure;
 }
