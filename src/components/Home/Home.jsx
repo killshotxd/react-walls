@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Body from "../Body/Body";
-import styles from "./Header.module.css";
+import styles from "./Home.module.css";
 import { GitHub } from "react-feather";
 import { Button } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +20,7 @@ const Home = (props) => {
 
   return (
     <>
+      {/* Header Part */}
       <div className={styles.container}>
         <div className={styles.left}>
           <p>
@@ -39,7 +39,7 @@ const Home = (props) => {
             {isAuth ? "Manage your Uploads" : "SignUp"}
           </Button>
           {isAuth ? (
-            <Button colorScheme="pink" variant="link" onClick={handleLogOut}>
+            <Button colorScheme="pink" variant="ghost" onClick={handleLogOut}>
               Logout
             </Button>
           ) : (
@@ -47,7 +47,7 @@ const Home = (props) => {
           )}
         </div>
       </div>
-      <Body />
+      {/* Body Part */}
     </>
   );
 };
