@@ -4,6 +4,7 @@ import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
 import { auth } from "./Firebase";
 import Auth from "./components/Auth/Auth";
+import Account from "./components/Accounts/Account";
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
@@ -33,7 +34,7 @@ const App = () => {
               <Route path="/signUp" element={<Auth signUp />} />
             </>
           )}
-
+          <Route path="/account" element={<Account />} />
           <Route path="/" element={<Home auth={isAuth} />} />
           <Route path="/*" element={<Navigate to="/" />} />
         </Routes>
