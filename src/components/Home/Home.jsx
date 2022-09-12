@@ -48,6 +48,7 @@ const Home = (props) => {
         </div>
       </div>
       {/* Body Part */}
+      <div className={styles.body}>Hi</div>
     </>
   );
 };

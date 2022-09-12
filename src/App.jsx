@@ -2,12 +2,21 @@ import React, { useEffect, useState } from "react";
 import Home from "./components/Home/Home";
 import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { ChakraProvider } from "@chakra-ui/react";
-import { auth } from "./Firebase";
+import { auth, getUserFromDb } from "./Firebase";
 import Auth from "./components/Auth/Auth";
 import Account from "./components/Accounts/Account";
 const App = () => {
   const [isAuth, setIsAuth] = useState(false);
   const [isDataLoaded, setIsDataLoaded] = useState(false);
+  const [userDetails, setUserDetails] = useState([]);
+
+  // ---------Function for userDetail fetch--------
+  const fetchUserDetails = async (uid) => {
+    const userDetails = await getUserFromDb(uid);
+    setUserDetails(userDetails);
+    console.log(userDetails);
+    setIsDataLoaded(true);
+  };
 
   // --------UseEffect for detecting state change---
   useEffect(() => {
@@ -19,6 +28,7 @@ const App = () => {
       }
 
       setIsAuth(true);
+      fetchUserDetails(user.uid);
     });
 
     return () => listener();

@@ -36,6 +36,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 const auth = firebase.auth(firebaseApp);
+const db = getFirestore(firebaseApp);
 const storage = getStorage(firebaseApp);
 
 // -------------Functions-------------------------
@@ -47,4 +48,14 @@ const updateUserDb = async (user, uid) => {
   await setDoc(docRef, { ...user, uid });
 };
 
-export { auth, storage, updateUserDb };
+// -------------Getting user from db-------------
+
+const getUserFromDb = async (uid) => {
+  const docRef = doc(db, "users", uid);
+  const result = await getDoc(docRef);
+
+  if (!result.exists()) return null;
+  return result.data();
+};
+
+export { auth, storage, updateUserDb, getUserFromDb };
